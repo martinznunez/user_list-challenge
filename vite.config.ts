@@ -1,0 +1,19 @@
+// / <reference types="vitest" />
+// / <reference types="Vite/client" />
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { test } from 'vitest'
+import eslint from "vite-plugin-eslint";
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [
+    react(),
+    eslint({
+      exclude: ["/virtual:/**", "node_modules/**"],
+    }),
+  ],
+  test: {
+    environment: "jsdom",
+    globals: true,
+  },
+});
